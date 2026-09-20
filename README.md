@@ -39,7 +39,48 @@
 ### Step 12: 
   Stop
 # Program:
+#include <stdio.h>
+
+void swapValue(int a, int b)
+{
+    int temp = a;
+    a = b;
+    b = temp;
+    printf("Inside Call by Value: a = %d, b = %d\n", a, b);
+}
+
+void swapReference(int *a, int *b)
+{
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+    printf("Inside Call by Reference: a = %d, b = %d\n", *a, *b);
+}
+
+int main()
+{
+    int a, b;
+
+    printf("Enter two numbers: ");
+    scanf("%d %d", &a, &b);
+
+    printf("Before swapping: a = %d, b = %d\n", a, b);
+
+    swapValue(a, b);
+    printf("After Call by Value: a = %d, b = %d\n", a, b);
+
+    swapReference(&a, &b);
+    printf("After Call by Reference: a = %d, b = %d\n", a, b);
+
+    return 0;
+}
 # Output:
+Enter two numbers: 10 20
+Before swapping: a = 10, b = 20
+Inside Call by Value: a = 20, b = 10
+After Call by Value: a = 10, b = 20
+Inside Call by Reference: a = 20, b = 10
+After Call by Reference: a = 20, b = 10
 # Result: 
   Thus, the program was implemented and executed successfully, and the required output was obtained.
 
@@ -77,7 +118,35 @@
 ### Step 10:
   Stop
 # Program:
+#include <stdio.h>
+
+int fibonacci(int n)
+{
+    if (n == 0)
+        return 0;
+    if (n == 1)
+        return 1;
+
+    return fibonacci(n - 1) + fibonacci(n - 2);
+}
+
+int main()
+{
+    int n, i;
+
+    printf("Enter number of terms: ");
+    scanf("%d", &n);
+
+    printf("Fibonacci Series: ");
+
+    for (i = 0; i < n; i++)
+        printf("%d ", fibonacci(i));
+
+    return 0;
+}
 # Output:
+Enter number of terms: 8
+Fibonacci Series: 0 1 1 2 3 5 8 13
 # Result: 
 Thus, the program was implemented and executed successfully, and the required output was obtained.
 
@@ -119,7 +188,38 @@ Thus, the program was implemented and executed successfully, and the required ou
 ### Step 12:
   Stop
 # Program:
+#include <stdio.h>
+
+void printNumbers(int start, int end)
+{
+    if (start > end)
+        return;
+
+    if (start % 2 == 0)
+        printf("%d ", start);
+
+    printNumbers(start + 1, end);
+}
+
+int main()
+{
+    int start, end;
+
+    printf("Enter starting value: ");
+    scanf("%d", &start);
+
+    printf("Enter ending value: ");
+    scanf("%d", &end);
+
+    printf("Even numbers: ");
+    printNumbers(start, end);
+
+    return 0;
+}
 # Output:
+Enter starting value: 2
+Enter ending value: 10
+Even numbers: 2 4 6 8 10
 # Result: 
 Thus, the program was implemented and executed successfully, and the required output was obtained.
 
@@ -161,7 +261,43 @@ Thus, the program was implemented and executed successfully, and the required ou
 ### Step 11:
   Stop
 # Program:
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int *arr, n, i, sum = 0;
+
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    arr = (int *)calloc(n, sizeof(int));
+
+    if (arr == NULL)
+    {
+        printf("Memory allocation failed");
+        return 1;
+    }
+
+    printf("Enter %d elements:\n", n);
+
+    for (i = 0; i < n; i++)
+    {
+        scanf("%d", &arr[i]);
+        sum += arr[i];
+    }
+
+    printf("Sum = %d", sum);
+
+    free(arr);
+
+    return 0;
+}
 # Output:
+Enter number of elements: 5
+Enter 5 elements:
+10 20 30 40 50
+Sum = 150
 # Result: 
 Thus, the program was implemented and executed successfully, and the required output was obtained.
 
@@ -197,6 +333,40 @@ Thus, the program was implemented and executed successfully, and the required ou
 ### Step 10:
   Stop
 # Program:
+#include <stdio.h>
+
+void display(int arr[], int n)
+{
+    int i;
+
+    printf("Array elements: ");
+    for (i = 0; i < n; i++)
+        printf("%d ", arr[i]);
+}
+
+int main()
+{
+    int arr[100], n, i;
+
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    printf("Enter %d integers:\n", n);
+    for (i = 0; i < n; i++)
+        scanf("%d", &arr[i]);
+
+    display(arr, n);
+
+    return 0;
+}
+# output:
+Enter number of elements: 5
+Enter 5 integers:
+10 20 30 40 50
+Array elements: 10 20 30 40 50
+# result:
+Thus, the C program to read integers into an array and display the elements using a user-defined function was successfully implemented and executed.
+
 # Output:
 # Result: 
 Thus, the program was implemented and executed successfully, and the required output was obtained.
